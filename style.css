@@ -296,49 +296,58 @@ button {
 
 /* ================== Sponsor Carousel ================== */
 .sponsors {
-  padding: 3rem 1rem;
-  background: #fff7e6;
-  overflow: hidden;
+  background: #ffffff;
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .sponsors h2 {
-  text-align: center;
+  color: #1c4570;
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 2rem;
 }
 
-.sponsor-carousel {
+.sponsor-rail {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.sponsor-track {
   display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 1rem;
+  gap: 4rem;
+  animation: scroll 30s linear infinite;
 }
 
-.sponsor-carousel::-webkit-scrollbar {
-  display: none;
+.sponsor-track img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
 }
 
-.sponsor-card {
-  min-width: 150px;
-  flex: 0 0 auto;
-  background: white;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s;
+.sponsor-track img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
 }
 
-.sponsor-card img {
-  max-width: 100%;
-  max-height: 60px;
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.sponsor-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+/* Responsive */
+@media (max-width: 768px) {
+  .sponsor-track {
+    gap: 2rem;
+    animation-duration: 20s;
+  }
+  .sponsor-track img {
+    width: 100px;
+  }
 }
 
 /* ================== Nomination Section ================== */
